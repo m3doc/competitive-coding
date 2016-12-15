@@ -1,6 +1,20 @@
 
-def solve():
-    pass
+def solve(n):
+    if n==0:
+        return "INSOMNIA"
+    dic = {}
+    temp = n
+    while 1:
+        temp = str(temp)
+
+        for number in temp:
+            # print number
+
+            if number not in dic:
+                dic[number]=1
+        if len(dic)==10:
+            return temp
+        temp = int(temp)+n
 
 
 if __name__=="__main__":
@@ -8,6 +22,6 @@ if __name__=="__main__":
     case = 0
     while case < t:
         case += 1
-        print "Case #" + str(case) + ":",
+        n = int(raw_input().strip())
+        print "Case #" + str(case) + ":",solve(n)
 
-    pass
