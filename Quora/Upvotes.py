@@ -34,13 +34,11 @@ def solve(numbers,n,k):
     sumi = sum(values[0][:k])-sum(values[1][:k])
     print sumi
     for i in xrange(1,n-k+1):
-        x = values[2][i-1] if 0 in values[2][i-1:k+i] else values[2][i-1] - values[2][k+i-1]
-        y = values[3][i-1] if 0 in values[3][i-1:k+i] else values[3][i-1] - values[3][k+i-1]
-        a = values[0][k+i-1] if 0 in values[0][i-1:k+i] else values[0][k+i-1]-values[0][i-1]
-        b = values[1][k + i - 1] if 0 in values[1][i - 1:k + i] else values[1][k + i - 1] - values[1][i - 1]
-        # sumi += (values[0][k+i-1]-values[1][k+i-1])-(values[2][i-1]-values[3][i-1])
-        # print x,y,values[0][k + i - 1],values[1][k + i - 1],a,b
-        # sumi += (values[0][k + i - 1] - values[1][k + i - 1]) - (x-y)
+
+        x = values[2][i - 1] if values[2][i - 1] <= k else k
+        y = values[3][i - 1] if values[3][i - 1] <= k else k
+        a = values[0][k + i - 1] if values[0][k + i - 1] <= k else k
+        b = values[1][k + i - 1] if values[1][k + i - 1] <= k else k
         sumi += (a-b) - (x - y)
         print sumi
 
